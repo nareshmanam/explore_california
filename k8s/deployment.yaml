@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: explore-california
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: explore-california
+  template:
+    metadata:
+      labels:
+        app: explore-california
+    spec:
+      containers:
+      - name: explore-california
+        image: nareshbabumanam/explore-california:latest
+        ports:
+        - containerPort: 80
