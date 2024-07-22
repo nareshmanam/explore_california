@@ -1,4 +1,5 @@
 
+# Fork and Clone the Repository
 # Forked the repository from https://github.com/mickeyjohn/explore_california
 # and cloned it locally:
 
@@ -29,6 +30,20 @@ docker build -t nareshbabumanam/explore-california:latest .
 docker run -p 8080:80 nareshbabumanam/explore-california:latest
 
 # Accessed the app at http://localhost:8080
+
+# Docker Hub Setup
+
+# Logged in to Docker Hub
+
+docker login --username YOUR_DOCKERHUB_USERNAME
+
+# Tagged the Docker Image
+
+docker tag nareshbabumanam/explore-california:latest YOUR_DOCKERHUB_USERNAME/explore-california:latest
+
+# Pushed the Docker Image to Docker Hub
+
+docker push YOUR_DOCKERHUB_USERNAME/explore-california:latest
 
 # AKS Setup
 
@@ -62,7 +77,7 @@ spec:
     spec:
       containers:
       - name: explore-california
-        image: nareshbabumanam/explore-california:latest
+        image: YOUR_DOCKERHUB_USERNAME/explore-california:latest
         ports:
         - containerPort: 80
 EOF
